@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+  {% block body_block %}
+    <head>
+      <style media="screen">
+        form{
+          border: 2px solid white;
+          padding: 20px;
+          top: 130px;
+          position: absolute;
+          left: 40px;
+          border-radius: 10px;
+        }
+      </style>
+    </head>
+    <div class="container">
+      <form method="post" enctype="multipart/form-data">
+        <h3>Upload json file</h3>
+          {{form.as_p}}
+          {% csrf_token %}
+        <input type="submit" Class="btn btn-success" name="" value="Upload File">
+      </form>
+    </div>
+  {% endblock %}

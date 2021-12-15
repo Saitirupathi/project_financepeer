@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+  {% block body_block %}
+    <head>
+      <style media="screen">
+        img{
+          display: none;
+        }
+        table{
+          width: 100%;
+          text-align: center;
+        }
+        thead{
+          background: rgb(135,206,235)
+        }
+      </style>
+    </head>
+    <div class="container" align='center'><br><br><br>
+      {% if a %}
+      <table border="2">
+        <thead>
+          <th width='5%'>ID</th>
+          <th width='8%'>USER ID</th>
+          <th>TITLE</th>
+          <th>BODY</th>
+        </thead>
+        {% for i in a %}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.userId}}</td>
+          <td>{{i.title}}</td>
+          <td>{{i.body}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <h2>Records not found..</h2>
+      {% endif %}
+    </div>
+  {% endblock %}

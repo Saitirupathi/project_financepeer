@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/beauty.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <style media="screen">
+      .navbar{
+        position: fixed;
+        width: 100%
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">financepeer</a>&nbsp&nbsp
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/items">Display Items</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/upload">Upload File</a>
+          </li>
+        </ul>
+        {%endif %}
+
+        <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/logout">Log out</a>
+        </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/login">LogIn</a>
+          </li>
+        {%endif %}
+        </ul>
+      </div>
+    </nav>
+    <img src="https://speakrj.nyc3.cdn.digitaloceanspaces.com/instagram/finance_peer.jpg" alt="">
+    {% block body_block %}
+    {% endblock %}
+
+  </body>
+</html>
